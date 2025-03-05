@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  admin_api:
+    build: ./Cowrywise_admin
+    ports:
+      - "8000:8000"
+    depends_on:
+      - library_api
+    volumes:
+      - ./Cowrywise_admin:/app
+    restart: always
+
+  library_api:
+    build: ./Cowryise_library
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./Cowryise_library:/app
+    restart: always
